@@ -1,0 +1,23 @@
+<div class="row">
+    <div class="card col-sm-8 mt-3">
+        <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <form [formGroup]="loginForm" (ngSubmit)="signUp()">
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Email address</label>
+                    <input type="email" class="form-control" [ngClass]="{ 'is-invalid': emailControl.invalid && emailControl.touched }" id="exampleInputEmail1" formControlName="email">
+                    <div id="emailAlert" class="form-text invalid-feedback" *ngIf="emailControl.invalid">El dato ingresado es inválido</div>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Password</label>
+                    <input type="password" class="form-control" [ngClass]="{ 'is-invalid': passwordControl.invalid && passwordControl.touched }" id="exampleInputPassword1" formControlName="password">
+                    <div id="passwordAlert" class="form-text invalid-feedback" *ngIf="passwordControl.invalid">El dato ingresado es inválido</div>
+                </div>
+                <div class="alert alert-success" role="alert" *ngIf="signedUp">
+                    Su usuario fue registrado con exito!
+                </div>
+                <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
